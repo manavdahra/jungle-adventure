@@ -1,0 +1,90 @@
+
+hero-idle.png
+size: 256,64
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+idle1
+  rotate: false
+  xy: 2, 2
+  size: 19, 34
+  orig: 19, 34
+  offset: 0, 0
+  index: -1
+idle10
+  rotate: false
+  xy: 191, 2
+  size: 19, 34
+  orig: 19, 34
+  offset: 0, 0
+  index: -1
+idle11
+  rotate: false
+  xy: 212, 2
+  size: 19, 34
+  orig: 19, 34
+  offset: 0, 0
+  index: -1
+idle12
+  rotate: false
+  xy: 233, 2
+  size: 19, 34
+  orig: 19, 34
+  offset: 0, 0
+  index: -1
+idle2
+  rotate: false
+  xy: 23, 2
+  size: 19, 34
+  orig: 19, 34
+  offset: 0, 0
+  index: -1
+idle3
+  rotate: false
+  xy: 44, 2
+  size: 19, 34
+  orig: 19, 34
+  offset: 0, 0
+  index: -1
+idle4
+  rotate: false
+  xy: 65, 2
+  size: 19, 34
+  orig: 19, 34
+  offset: 0, 0
+  index: -1
+idle5
+  rotate: false
+  xy: 86, 2
+  size: 19, 34
+  orig: 19, 34
+  offset: 0, 0
+  index: -1
+idle6
+  rotate: false
+  xy: 107, 2
+  size: 19, 34
+  orig: 19, 34
+  offset: 0, 0
+  index: -1
+idle7
+  rotate: false
+  xy: 128, 2
+  size: 19, 34
+  orig: 19, 34
+  offset: 0, 0
+  index: -1
+idle8
+  rotate: false
+  xy: 149, 2
+  size: 19, 34
+  orig: 19, 34
+  offset: 0, 0
+  index: -1
+idle9
+  rotate: false
+  xy: 170, 2
+  size: 19, 34
+  orig: 19, 34
+  offset: 0, 0
+  index: -1

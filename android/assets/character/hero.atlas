@@ -1,0 +1,62 @@
+
+hero.png
+size: 256,64
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+run1
+  rotate: false
+  xy: 2, 2
+  size: 21, 33
+  orig: 21, 33
+  offset: 0, 0
+  index: -1
+run2
+  rotate: false
+  xy: 68, 4
+  size: 18, 31
+  orig: 21, 33
+  offset: 1, 0
+  index: -1
+run3
+  rotate: false
+  xy: 147, 4
+  size: 15, 31
+  orig: 21, 33
+  offset: 3, 0
+  index: -1
+run4
+  rotate: false
+  xy: 108, 5
+  size: 18, 30
+  orig: 21, 33
+  offset: 2, 3
+  index: -1
+run5
+  rotate: false
+  xy: 25, 2
+  size: 18, 33
+  orig: 21, 33
+  offset: 2, 0
+  index: -1
+run6
+  rotate: false
+  xy: 128, 4
+  size: 17, 31
+  orig: 21, 33
+  offset: 1, 0
+  index: -1
+run7
+  rotate: false
+  xy: 88, 4
+  size: 18, 31
+  orig: 21, 33
+  offset: 1, 0
+  index: -1
+run8
+  rotate: false
+  xy: 45, 5
+  size: 21, 30
+  orig: 21, 33
+  offset: 0, 3
+  index: -1
