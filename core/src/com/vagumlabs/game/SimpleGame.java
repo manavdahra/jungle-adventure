@@ -4,7 +4,9 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -63,6 +65,7 @@ public class SimpleGame extends ApplicationAdapter {
         world = new World(new Vector2(VELOCITY_X, VELOCITY_Y), false);
         box2DDebugRenderer = new Box2DDebugRenderer();
         batch = new SpriteBatch();
+
         runTextureAtlas = new TextureAtlas(Gdx.files.internal(Player.PLAYER_RUN_ATLAS));
         idleTextureAtlas = new TextureAtlas(Gdx.files.internal(Player.PLAYER_IDLE_ATLAS));
         jumpTextureAtlas = new TextureAtlas(Gdx.files.internal(Player.PLAYER_JUMP_ATLAS));

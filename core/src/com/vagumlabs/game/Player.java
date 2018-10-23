@@ -5,6 +5,8 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.physics.box2d.joints.RevoluteJoint;
+import com.badlogic.gdx.physics.box2d.joints.RevoluteJointDef;
 
 /**
  * Created by B0204046 on 19/10/18.
@@ -24,10 +26,29 @@ public class Player {
     public static final float PLAYER_START_Y = 25f;
 
     private Body body;
+    private Body weapon;
     private PlayerState state;
+    private RevoluteJoint joint;
 
     public Player(World world) {
         createBoxBody(world, PLAYER_START_X, PLAYER_START_Y);
+//        createSword(world, PLAYER_START_X, PLAYER_START_Y);
+//        RevoluteJointDef revoluteJointDef = new RevoluteJointDef();
+//        revoluteJointDef.bodyA = this.getBody();
+//        revoluteJointDef.bodyB = this.getWeapon();
+//        revoluteJointDef.collideConnected = false;
+//        revoluteJointDef.localAnchorA.set(0, 0);
+//        revoluteJointDef.localAnchorB.set(0, 0);
+//
+//        revoluteJointDef.enableMotor = true;
+//        revoluteJointDef.motorSpeed = 0f;
+//        revoluteJointDef.maxMotorTorque = 10f;
+//
+//        revoluteJointDef.enableLimit = true;
+//        revoluteJointDef.lowerAngle = 1.2f;
+//        revoluteJointDef.upperAngle = 5;
+//
+//        joint = (RevoluteJoint) world.createJoint(revoluteJointDef);
     }
 
     private void createBoxBody(World world, float x, float y) {
@@ -46,8 +67,25 @@ public class Player {
         body.createFixture(fixtureDef).setUserData(this);
     }
 
+    private void createSword(World world, float x, float y) {
+        BodyDef bDef = new BodyDef();
+        bDef.type = BodyDef.BodyType.DynamicBody;
+        bDef.position.set(x, y);
+        PolygonShape shape = new PolygonShape();
+        shape.setAsBox(20 / Constants.PIXEL_PER_METER / 2, 12 / Constants.PIXEL_PER_METER / 2);
+        FixtureDef fixtureDef = new FixtureDef();
+        fixtureDef.shape = shape;
+        fixtureDef.density = PLAYER_DENSITY * 10;
+        weapon = world.createBody(bDef);
+        weapon.createFixture(fixtureDef).setUserData(this);
+    }
+
     public Body getBody() {
         return body;
+    }
+
+    public Body getWeapon() {
+        return weapon;
     }
 
     public PlayerState getState() {
