@@ -101,7 +101,6 @@ public class SimpleGame extends ApplicationAdapter {
                 }
             }
 
-            System.out.println(player.getState());
             if (controller.isUpPressed() && player.getState() != PlayerState.JUMPING) {
                 player.getBody().applyForceToCenter(0, Player.JUMP_FORCE, false);
                 player.setState(PlayerState.JUMPING);

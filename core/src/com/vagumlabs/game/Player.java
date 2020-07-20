@@ -17,11 +17,13 @@ public class Player {
     private static final int BOX_SIZE_W = 32;
     private static final int BOX_SIZE_H = 64;
     private static final float PLAYER_DENSITY = 1.0f;
-    public static final float JUMP_FORCE = 650f;
+    private static final float SWORD_DENSITY = 0.3f;
     public static final float RUN_FORCE = 5f;
-    public static final String PLAYER_RUN_ATLAS = "character/hero.atlas";
-    public static final String PLAYER_IDLE_ATLAS = "character/hero-idle.atlas";
-    public static final String PLAYER_JUMP_ATLAS = "character/hero-jump.atlas";
+    public static final float JUMP_FORCE = 650f;
+    public static final float FRICTION_FORCE = 3f;
+    public static final String PLAYER_RUN_ATLAS = "character/hero-run-weapon.atlas";
+    public static final String PLAYER_IDLE_ATLAS = "character/hero-idle-weapon.atlas";
+    public static final String PLAYER_JUMP_ATLAS = "character/hero-jump-weapon.atlas";
     public static final float PLAYER_START_X = 5f;
     public static final float PLAYER_START_Y = 25f;
 
@@ -32,23 +34,23 @@ public class Player {
 
     public Player(World world) {
         createBoxBody(world, PLAYER_START_X, PLAYER_START_Y);
-//        createSword(world, PLAYER_START_X, PLAYER_START_Y);
-//        RevoluteJointDef revoluteJointDef = new RevoluteJointDef();
-//        revoluteJointDef.bodyA = this.getBody();
-//        revoluteJointDef.bodyB = this.getWeapon();
-//        revoluteJointDef.collideConnected = false;
-//        revoluteJointDef.localAnchorA.set(0, 0);
-//        revoluteJointDef.localAnchorB.set(0, 0);
-//
-//        revoluteJointDef.enableMotor = true;
-//        revoluteJointDef.motorSpeed = 0f;
-//        revoluteJointDef.maxMotorTorque = 10f;
-//
-//        revoluteJointDef.enableLimit = true;
-//        revoluteJointDef.lowerAngle = 1.2f;
-//        revoluteJointDef.upperAngle = 5;
-//
-//        joint = (RevoluteJoint) world.createJoint(revoluteJointDef);
+        createSword(world, PLAYER_START_X, PLAYER_START_Y);
+        RevoluteJointDef revoluteJointDef = new RevoluteJointDef();
+        revoluteJointDef.bodyA = this.getBody();
+        revoluteJointDef.bodyB = this.getWeapon();
+        revoluteJointDef.collideConnected = false;
+        revoluteJointDef.localAnchorA.set(0, 0);
+        revoluteJointDef.localAnchorB.set(0, 0);
+
+        revoluteJointDef.enableMotor = true;
+        revoluteJointDef.motorSpeed = 0f;
+        revoluteJointDef.maxMotorTorque = 10f;
+
+        revoluteJointDef.enableLimit = true;
+        revoluteJointDef.lowerAngle = 1.2f;
+        revoluteJointDef.upperAngle = 5;
+
+        joint = (RevoluteJoint) world.createJoint(revoluteJointDef);
     }
 
     private void createBoxBody(World world, float x, float y) {
@@ -62,7 +64,7 @@ public class Player {
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = shape;
         fixtureDef.density = PLAYER_DENSITY;
-        fixtureDef.friction = 3f;
+        fixtureDef.friction = FRICTION_FORCE;
         body = world.createBody(bdef);
         body.createFixture(fixtureDef).setUserData(this);
     }
@@ -75,7 +77,7 @@ public class Player {
         shape.setAsBox(20 / Constants.PIXEL_PER_METER / 2, 12 / Constants.PIXEL_PER_METER / 2);
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = shape;
-        fixtureDef.density = PLAYER_DENSITY * 10;
+        fixtureDef.density = SWORD_DENSITY;
         weapon = world.createBody(bDef);
         weapon.createFixture(fixtureDef).setUserData(this);
     }
